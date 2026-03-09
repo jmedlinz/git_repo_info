@@ -218,13 +218,13 @@ def report_summary(statuses: list[RepoStatus]):
     if uncommitted:
         report_section(f"Repos with uncommitted changes ({len(uncommitted)}):")
         for s in uncommitted:
-            report_subsection(f"• {s.name} ({s.path})")
+            report_subsection(f"- {s.name} ({s.path})")
 
     if need_push:
         report_blank()
         report_section(f"Repos that need push ({len(need_push)}):")
         for s in need_push:
-            msg = f"• {s.name}"
+            msg = f"- {s.name}"
             if s.ahead_count:
                 msg += f" ({s.ahead_count} commit(s) ahead)"
             report_subsection(msg)
@@ -233,7 +233,7 @@ def report_summary(statuses: list[RepoStatus]):
         report_blank()
         report_section(f"Repos that need pull ({len(need_pull)}):")
         for s in need_pull:
-            msg = f"• {s.name}"
+            msg = f"- {s.name}"
             if s.behind_count:
                 msg += f" ({s.behind_count} commit(s) behind)"
             report_subsection(msg)
